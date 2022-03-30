@@ -244,17 +244,6 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
-name = "deprecation"
-version = "2.1.0"
-description = "A library to handle automated deprecations"
-category = "main"
-optional = true
-python-versions = "*"
-
-[package.dependencies]
-packaging = "*"
-
-[[package]]
 name = "entrypoints"
 version = "0.3"
 description = "Discover and load entry points from installed packages."
@@ -594,22 +583,6 @@ pywin32 = {version = ">=1.0", markers = "sys_platform == \"win32\""}
 traitlets = "*"
 
 [[package]]
-name = "jupyter-packaging"
-version = "0.9.1"
-description = "Jupyter Packaging Utilities."
-category = "main"
-optional = true
-python-versions = ">=3.6"
-
-[package.dependencies]
-deprecation = "*"
-packaging = "*"
-tomlkit = "*"
-
-[package.extras]
-test = ["build", "coverage", "pytest", "pytest-cov", "pytest-mock"]
-
-[[package]]
 name = "jupyter-server"
 version = "1.15.4"
 description = "The backend—i.e. core services, APIs, and REST endpoints—to Jupyter web applications."
@@ -640,17 +613,16 @@ test = ["coverage", "pytest (>=6.0)", "pytest-cov", "pytest-mock", "pytest-timeo
 
 [[package]]
 name = "jupyterlab"
-version = "3.0.14"
-description = "The JupyterLab server extension."
+version = "3.0.17"
+description = "JupyterLab computational environment"
 category = "main"
 optional = true
 python-versions = ">=3.6"
 
 [package.dependencies]
 ipython = "*"
-jinja2 = ">=2.10"
+jinja2 = ">=2.1"
 jupyter-core = "*"
-jupyter-packaging = ">=0.7,<1.0"
 jupyter-server = ">=1.4,<2.0"
 jupyterlab-server = ">=2.3,<3.0"
 nbclassic = ">=0.2,<1.0"
@@ -658,8 +630,7 @@ packaging = "*"
 tornado = ">=6.1.0"
 
 [package.extras]
-docs = ["jsx-lexer", "recommonmark", "sphinx", "sphinx-rtd-theme", "sphinx-copybutton"]
-test = ["pytest (>=6.0)", "pytest-cov", "pytest-console-scripts", "pytest-check-links", "jupyterlab-server[test] (>=2.0,<3.0)", "requests", "wheel", "virtualenv", "nose-exclude"]
+test = ["coverage", "pytest (>=6.0)", "pytest-cov", "pytest-console-scripts", "pytest-check-links (>=0.5)", "jupyterlab-server[test] (>=2.2,<3.0)", "requests", "requests-cache", "virtualenv", "check-manifest"]
 
 [[package]]
 name = "jupyterlab-pygments"
@@ -1782,14 +1753,6 @@ optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
-name = "tomlkit"
-version = "0.7.0"
-description = "Style preserving TOML library"
-category = "main"
-optional = true
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-
-[[package]]
 name = "tornado"
 version = "6.1"
 description = "Tornado is a Python web framework and asynchronous networking library, originally developed at FriendFeed."
@@ -1924,7 +1887,7 @@ jupyter = ["ipykernel", "jupyterlab", "py-heat-magic"]
 [metadata]
 lock-version = "1.1"
 python-versions = "3.8.2"
-content-hash = "b5d2942a2536e791a94115108c0c80c9980e02e87cf665620e139c87cb3673d5"
+content-hash = "e66a8667b77f3a0f763e1be0fba0101c3c04f33de3f7270ddf290d1b6b7f122f"
 
 [metadata.files]
 anyio = [
@@ -2173,10 +2136,6 @@ defusedxml = [
     {file = "defusedxml-0.7.1-py2.py3-none-any.whl", hash = "sha256:a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61"},
     {file = "defusedxml-0.7.1.tar.gz", hash = "sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"},
 ]
-deprecation = [
-    {file = "deprecation-2.1.0-py2.py3-none-any.whl", hash = "sha256:a10811591210e1fb0e768a8c25517cabeabcba6f0bf96564f8ff45189f90b14a"},
-    {file = "deprecation-2.1.0.tar.gz", hash = "sha256:72b3bde64e5d778694b0cf68178aed03d15e15477116add3fb773e581f9518ff"},
-]
 entrypoints = [
     {file = "entrypoints-0.3-py2.py3-none-any.whl", hash = "sha256:589f874b313739ad35be6e0cd7efde2a4e9b6fea91edcc34e58ecbb8dbe56d19"},
     {file = "entrypoints-0.3.tar.gz", hash = "sha256:c70dd71abe5a8c85e55e12c19bd91ccfeec11a6e99044204511f9ed547d48451"},
@@ -2279,17 +2238,13 @@ jupyter-core = [
     {file = "jupyter_core-4.7.1-py3-none-any.whl", hash = "sha256:8c6c0cac5c1b563622ad49321d5ec47017bd18b94facb381c6973a0486395f8e"},
     {file = "jupyter_core-4.7.1.tar.gz", hash = "sha256:79025cb3225efcd36847d0840f3fc672c0abd7afd0de83ba8a1d3837619122b4"},
 ]
-jupyter-packaging = [
-    {file = "jupyter_packaging-0.9.1-py2.py3-none-any.whl", hash = "sha256:a3e6135d2f287cb66d1fc25d02307c68fa77bb93269c3b21dfe814efc1f9c4ed"},
-    {file = "jupyter_packaging-0.9.1.tar.gz", hash = "sha256:6f819759804536f9e563cc8a76a9d8588bb90cd735deaa550a6d8453012b0164"},
-]
 jupyter-server = [
     {file = "jupyter_server-1.15.4-py3-none-any.whl", hash = "sha256:94a136b6ed4826ac6a1fab3bfeff8a698a7833578548f78f302ed1ba90b1e534"},
     {file = "jupyter_server-1.15.4.tar.gz", hash = "sha256:1983a2a71d8709a77da6804ece67ded776c201ba11126de7002d088fb3418c85"},
 ]
 jupyterlab = [
-    {file = "jupyterlab-3.0.14-py3-none-any.whl", hash = "sha256:223ad786032119f495edc894a81925b6cc327a184f150adbc4e5ef94965d4921"},
-    {file = "jupyterlab-3.0.14.tar.gz", hash = "sha256:713a84991dfcca8c0bc260911f1bd54ac25a386a86285713b9555a60f795059b"},
+    {file = "jupyterlab-3.0.17-py3-none-any.whl", hash = "sha256:28d303bca26d33c0478ab88f906421e567192af19016abbdadfcab3cfe91a282"},
+    {file = "jupyterlab-3.0.17.tar.gz", hash = "sha256:791ae7fba158ed902afd2c70aed86d9ffd67996f07b2f0494675c81147b3e96e"},
 ]
 jupyterlab-pygments = [
     {file = "jupyterlab_pygments-0.1.2-py2.py3-none-any.whl", hash = "sha256:abfb880fd1561987efaefcb2d2ac75145d2a5d0139b1876d5be806e32f630008"},
@@ -3129,10 +3084,6 @@ threadpoolctl = [
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
     {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
-]
-tomlkit = [
-    {file = "tomlkit-0.7.0-py2.py3-none-any.whl", hash = "sha256:6babbd33b17d5c9691896b0e68159215a9387ebfa938aa3ac42f4a4beeb2b831"},
-    {file = "tomlkit-0.7.0.tar.gz", hash = "sha256:ac57f29693fab3e309ea789252fcce3061e19110085aa31af5446ca749325618"},
 ]
 tornado = [
     {file = "tornado-6.1-cp35-cp35m-macosx_10_9_x86_64.whl", hash = "sha256:d371e811d6b156d82aa5f9a4e08b58debf97c302a35714f6f45e35139c332e32"},

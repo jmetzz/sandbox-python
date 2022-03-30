@@ -14,7 +14,7 @@ colorama = "^0.4.4"
 environs = "^9.3.0"
 ipykernel = {version = "^5.4.3", optional = true}
 ipython = "^7.31.1"
-jupyterlab = {version = "^3.0.6", optional = true}
+jupyterlab = {version = "^3.0.17", optional = true}
 line-profiler = "^3.1.0"
 llvmlite = "0.35.0"
 matplotlib = "^3.3.4"
