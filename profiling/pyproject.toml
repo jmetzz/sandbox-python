@@ -27,7 +27,7 @@ pip = "^21.0.1"
 psutil = "^5.8.0"
 py-heat-magic = {version = "^0.0.2", optional = true}
 py-spy = "^0.3.4"
-pydantic = "^1.7.3"
+pydantic = "^1.8.2"
 pyinstrument = "^3.3.0"
 pyinstrument-flame = "^1.0.2"
 python = "3.8.2"
