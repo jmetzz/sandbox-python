@@ -302,7 +302,7 @@ if __name__ == "__main__":
     sa = SuffixArray(["a", "b"])
     indexes = sa.build(input_text)
     for i in indexes:
-        print(input_text[i: size - 1])
+        print(input_text[i : size - 1])
 
     print("----")
     input_text = "ababaacabc$"
@@ -310,4 +310,4 @@ if __name__ == "__main__":
     sa = SuffixArray(["a", "b", "c"])
     indexes = sa.build(input_text)
     for i in indexes:
-        print(input_text[i: size - 1])
+        print(input_text[i : size - 1])
