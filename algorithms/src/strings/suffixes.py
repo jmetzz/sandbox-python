@@ -137,7 +137,10 @@ class SuffixTree:
     """
 
     def _lcp(self, text, suffix_array):
-        return [self._common_prefix_length(text, idx, idx + 1) for idx in range(suffix_array)]
+        return [
+            self._common_prefix_length(text, idx, idx + 1)
+            for idx in range(suffix_array)
+        ]
 
     @staticmethod
     def _common_prefix_length(text: str, i: int, j: int) -> int:
@@ -302,7 +305,7 @@ if __name__ == "__main__":
     sa = SuffixArray(["a", "b"])
     indexes = sa.build(input_text)
     for i in indexes:
-        print(input_text[i: size - 1])
+        print(input_text[i : size - 1])
 
     print("----")
     input_text = "ababaacabc$"
@@ -310,4 +313,4 @@ if __name__ == "__main__":
     sa = SuffixArray(["a", "b", "c"])
     indexes = sa.build(input_text)
     for i in indexes:
-        print(input_text[i: size - 1])
+        print(input_text[i : size - 1])
