@@ -37,7 +37,7 @@ pytest-mock = "^3.5.1"
 pytest-sugar = "^0.9.4"
 pytest-xdist = "^2.2.0"
 toml = "0.10.2"
-ipython = "^8.3.0"
+ipython = "^8.10.0"
 
 [tool.poetry.extras]
 jupyter = ["ipykernel", "jupyterlab"]
