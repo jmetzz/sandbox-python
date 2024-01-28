@@ -55,7 +55,7 @@ class TreeNode:
         return TreeNode(
             arr[root],
             TreeNode.build(arr, root * 2 + 1),
-            TreeNode.build(arr, root * 2 + 2)
+            TreeNode.build(arr, root * 2 + 2),
         )
 
 
@@ -89,14 +89,16 @@ class PseudoPalindromicPaths_recursive:
         if not node.left and not node.right:
             return 1 if path & (path - 1) == 0 else 0
 
-        return self._count_solutions(node.left, path) + self._count_solutions(node.right, path)
+        return self._count_solutions(node.left, path) + self._count_solutions(
+            node.right, path
+        )
 
 
 def df_traverse(node: TreeNode) -> List:
     return [node.val] + df_traverse(node.left) + df_traverse(node.right) if node else []
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     tree = TreeNode.build([2, 3, 1, 3, 1, None, 1], 0)
     print(PseudoPalindromicPaths_iterative().solve(tree))
     print(PseudoPalindromicPaths_recursive().solve(tree))

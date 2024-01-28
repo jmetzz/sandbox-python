@@ -29,7 +29,7 @@ from typing import List
 
 
 class SumSubarrayMinsNaive:
-    """    O(n^2)     """
+    """O(n^2)"""
 
     def solve(self, arr: List[int]) -> int:
         n = len(arr)
@@ -40,7 +40,7 @@ class SumSubarrayMinsNaive:
             offset = n - size
             while start_p + offset <= n:
                 # print(arr[start_p: start_p + offset])
-                subtotal = subtotal + min(arr[start_p: start_p + offset])
+                subtotal = subtotal + min(arr[start_p : start_p + offset])
                 start_p += 1
             size -= 1
         # preventing integer overflow and keeping the result within a manageable range:
@@ -81,7 +81,10 @@ class SumSubarrayMinsStackingA:
                 right_idx[idx] = stack[-1][0]
             stack.append((idx, arr[idx]))  # (idx, value)
 
-        min_value_frequency = [(i - left_idx[i]) * (right_idx[i] - i) * value for i, value in enumerate(arr)]
+        min_value_frequency = [
+            (i - left_idx[i]) * (right_idx[i] - i) * value
+            for i, value in enumerate(arr)
+        ]
         subtotal = sum(min_value_frequency)
         return subtotal % 1000000007  # (10 ** 9 + 7)
 
@@ -90,6 +93,7 @@ class SumSubarrayMinsStackingB:
     """
     Explanation: https://youtu.be/aX1F2-DrBkQ?si=V3oBj-5eT6asMZ1w
     """
+
     def solve(self, arr: List[int]) -> int:
         subtotal = 0
         stack = []  # (index, value)
@@ -99,7 +103,7 @@ class SumSubarrayMinsStackingB:
                 jdx, element = stack.pop()
                 left_num_subarr = jdx - stack[-1][0] if stack else jdx + 1
                 right_num_subarr = idx - jdx
-                subtotal = (subtotal + element * left_num_subarr * right_num_subarr)
+                subtotal = subtotal + element * left_num_subarr * right_num_subarr
             stack.append((idx, value))
 
         # second phase: iterate over the stack
@@ -107,7 +111,5 @@ class SumSubarrayMinsStackingB:
             jdx, element = stack[idx]
             left_num_subarr = jdx - stack[idx - 1][0] if idx > 0 else jdx + 1
             right_num_subarr = len(arr) - jdx
-            subtotal = (subtotal + element * left_num_subarr * right_num_subarr)
+            subtotal = subtotal + element * left_num_subarr * right_num_subarr
         return subtotal % 1000000007  # (10 ** 9 + 7)
-
-

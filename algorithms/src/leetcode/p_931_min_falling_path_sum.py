@@ -34,7 +34,7 @@ class MinFallingPathSumViaRecursion:
             costs[col] = matrix[n - 1][col] + min(
                 self._solve(matrix, n, n - 2, col - 1),
                 self._solve(matrix, n, n - 2, col),
-                self._solve(matrix, n, n - 2, col + 1)
+                self._solve(matrix, n, n - 2, col + 1),
             )
         return min(costs)
 
@@ -48,7 +48,7 @@ class MinFallingPathSumViaRecursion:
         return matrix[row][col] + min(
             self._solve(matrix, n, row - 1, col - 1),
             self._solve(matrix, n, row - 1, col),
-            self._solve(matrix, n, row - 1, col + 1)
+            self._solve(matrix, n, row - 1, col + 1),
         )
 
 
@@ -58,20 +58,19 @@ class MinFallingPathSumViaDP:
         # one line only, return the smaller element
         if n == 1:
             return min(matrix[0])
-        sentinel = float('inf')
+        sentinel = float("inf")
         # two extra columns to accommodate the boundary cases
         # both to the left and to the right
         dp_table_line = [sentinel] * (n + 2)
 
         for row in range(1, n, 1):
-            dp_table_line[1:n + 1] = matrix[row - 1]
+            dp_table_line[1 : n + 1] = matrix[row - 1]
             for col in range(n):
                 # target_costs[col] = matrix[row][col] + min(
                 matrix[row][col] = matrix[row][col] + min(
                     dp_table_line[col],  # left
                     dp_table_line[col + 1],  # center
-                    dp_table_line[col + 2]  # right
+                    dp_table_line[col + 2],  # right
                 )
         # the smaller element in the last line has the min cost
         return min(matrix[n - 1])
-

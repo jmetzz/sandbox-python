@@ -29,6 +29,7 @@ Constraints:
 1 <= n <= 45
 """
 
+
 def climb_stairs_memoization(n: int) -> int:
     # bottom up using a dp temp storage
     dp = [-1] * (n + 1)
@@ -72,7 +73,7 @@ def climb_stairs_space_optimization(n: int) -> int:
     current = previous = 1
 
     for step in range(2, n + 1):
-        # updates prev and curr by shifting their values. 
+        # updates prev and curr by shifting their values.
         # curr becomes the sum of the previous two values,
         # and prev stores the previous value of curr.
         temp = current + previous
@@ -80,5 +81,3 @@ def climb_stairs_space_optimization(n: int) -> int:
         current = temp
 
     return current
-
-

@@ -35,13 +35,12 @@ Constraints:
 0 <= k <= 1000
 
 """
-from typing import List, Dict
+from typing import Dict, List
 
-MOD = 10 ** 9 + 7
+MOD = 10**9 + 7
 
 
 class KInversePairsArray:
-
     def solve_memo(self, n: int, k: int, cache: Dict) -> int:
         """
         O(n^2 * k) time complexity :(
@@ -55,9 +54,9 @@ class KInversePairsArray:
 
         sub_total = 0
         for num_pairs_created in range(n):
-            sub_total = ((sub_total
-                          + self.solve_memo(n - 1, k - num_pairs_created, cache))
-                         % MOD)
+            sub_total = (
+                sub_total + self.solve_memo(n - 1, k - num_pairs_created, cache)
+            ) % MOD
         cache[(n, k)] = sub_total
         return sub_total
 
@@ -120,11 +119,17 @@ class KInversePairsArray:
         for row in range(1, n + 1):
             current = [0] * (k + 1)
             window_total = 0
-            window_size = row  # we use window_size variable for clarity. We could use row as well
+            window_size = (
+                row  # we use window_size variable for clarity. We could use row as well
+            )
             for col in range(0, k + 1):
                 if col >= window_size:  # here is the trick with the window!
-                    window_total -= previous[col - window_size]  # action: remove elements out of window
-                window_total = (window_total + previous[col]) % MOD  # action: look up <+ left>
+                    window_total -= previous[
+                        col - window_size
+                    ]  # action: remove elements out of window
+                window_total = (
+                    window_total + previous[col]
+                ) % MOD  # action: look up <+ left>
                 current[col] = window_total
             previous = current
         return previous[k]

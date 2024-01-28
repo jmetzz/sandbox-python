@@ -47,7 +47,6 @@ def _test_roll_add(clz):
 
 
 if __name__ == "__main__":
-
     _test_roll_add(DiffusionNumpyInPlaceLessAllocation)
     _test_roll_add(DiffusionNumexpr)
 

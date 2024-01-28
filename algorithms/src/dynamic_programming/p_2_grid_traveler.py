@@ -5,7 +5,7 @@ The only actions allowed are:
 2. move right
 
 """
-from typing import Tuple, Dict
+from typing import Dict, Tuple
 
 
 def grid_traveler(m: int, n: int) -> int:
@@ -33,11 +33,13 @@ def grid_traveler_memoization(m: int, n: int, cache: Dict) -> int:
     if m == 1 and n == 1:
         return 1
 
-    cache[key] = grid_traveler_memoization(m - 1, n, cache) + grid_traveler_memoization(m, n - 1, cache)
+    cache[key] = grid_traveler_memoization(m - 1, n, cache) + grid_traveler_memoization(
+        m, n - 1, cache
+    )
     return cache[key]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     memo = dict()
     value = grid_traveler_memoization(2, 3, memo)
     print(value)

@@ -41,7 +41,6 @@ from typing import List
 
 
 class NumSubmatricesSumTarget:
-
     def solve_2d_grid(self, matrix: List[List[int]], target: int) -> int:
         """This is not really trivial,
         but is the slow solution.
@@ -99,9 +98,7 @@ class NumSubmatricesSumTarget:
                     # If it does, increment the count by the frequency of that sum.
                     # Also, keep in mind cur_sum ending at r2 and column c,
                     # then adjust the value by subtracting  sub_sum[r1 - 1][c]
-                    cur_sum = sub_sum[r2][c] - (
-                        sub_sum[r1 - 1][c] if r1 > 0 else 0
-                    )
+                    cur_sum = sub_sum[r2][c] - (sub_sum[r1 - 1][c] if r1 > 0 else 0)
                     delta = cur_sum - target
                     result += count[delta]
                     count[cur_sum] += 1

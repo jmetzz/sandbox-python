@@ -17,7 +17,7 @@ Example:
 
 """
 
-from typing import List, Dict, Optional
+from typing import Dict, List, Optional
 
 
 def solve_dfs_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
@@ -38,7 +38,9 @@ def solve_dfs_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
     return None
 
 
-def solve_memoization(target: int, arr: List[int], cache: Dict[int, List[int]]) -> Optional[List[int]]:
+def solve_memoization(
+    target: int, arr: List[int], cache: Dict[int, List[int]]
+) -> Optional[List[int]]:
     """Solution using memoization
 
     O(n * m^2) time
@@ -60,7 +62,7 @@ def solve_memoization(target: int, arr: List[int], cache: Dict[int, List[int]]) 
     return None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(solve_dfs_recursive(7, [2, 3]))
     print(solve_dfs_recursive(7, [5, 3, 4, 7]))
     print(solve_dfs_recursive(7, [2, 4]))

@@ -71,6 +71,6 @@ class MaxLengthStrWithUniqueChars:
         return len(set(current) & set(new_string)) != 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(MaxLengthStrWithUniqueChars().solve(["un", "iq", "ue"]))
     print(MaxLengthStrWithUniqueChars().solve(["cha", "r", "act", "ers"]))
