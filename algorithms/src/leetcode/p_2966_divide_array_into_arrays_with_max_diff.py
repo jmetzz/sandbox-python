@@ -40,7 +40,6 @@ from typing import List
 
 
 class DivideArraysWithMaxDiff:
-
     def solve_backward(self, nums: List[int], k: int) -> List[List[int]]:
         size = len(nums)
         if size % 3 != 0:
@@ -54,12 +53,17 @@ class DivideArraysWithMaxDiff:
         while i >= 2:
             # check diff
             if (
-                    sorted_nums[i] - sorted_nums[i - 1] > k
-                    or sorted_nums[i] - sorted_nums[i - 2] > k
-                    or sorted_nums[i - 2] - sorted_nums[i - 1] > k):
+                sorted_nums[i] - sorted_nums[i - 1] > k
+                or sorted_nums[i] - sorted_nums[i - 2] > k
+                or sorted_nums[i - 2] - sorted_nums[i - 1] > k
+            ):
                 return []
 
-            answer[bucket_index] = [sorted_nums[i], sorted_nums[i - 1], sorted_nums[i - 2]]
+            answer[bucket_index] = [
+                sorted_nums[i],
+                sorted_nums[i - 1],
+                sorted_nums[i - 2],
+            ]
             bucket_index -= 1
             i -= 3
         return answer
@@ -80,4 +84,3 @@ class DivideArraysWithMaxDiff:
             bucket_index += 1
 
         return answer
-

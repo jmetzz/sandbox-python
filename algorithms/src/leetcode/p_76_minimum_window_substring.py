@@ -74,12 +74,11 @@ Technique: Sliding Window
   valid window is found. Continue until a smaller valid window is not possible of the right pointer
   reaches the end of the string
 """
-from collections import defaultdict, Counter
+from collections import Counter, defaultdict
 
 
 class MinWindow:
     def solve(self, src_string: str, target: str) -> str:
-
         if not src_string or not target:
             return ""
 
@@ -91,15 +90,26 @@ class MinWindow:
         win_size = -1
         win_left = 0
         win_right = 0
-        win_counts = defaultdict(int)  # represent the num of occurrences of char in the window {c: int}
+        win_counts = defaultdict(
+            int
+        )  # represent the num of occurrences of char in the window {c: int}
 
         left, right = 0, 0  # window control pointers
-        while right < len(src_string):  # expand the window iterating over all elements in s
+        while right < len(
+            src_string
+        ):  # expand the window iterating over all elements in s
             curr_char = src_string[right]  # the character from s we are evaluating
-            win_counts[curr_char] += 1  # while expanding the window, we add 1 for each char we encounter
+            win_counts[
+                curr_char
+            ] += 1  # while expanding the window, we add 1 for each char we encounter
 
-            if curr_char in t_counter_map and win_counts[curr_char] == t_counter_map[curr_char]:
-                num_chars_used_from_target += 1  # add 1 to represent another char is "consumed" from target
+            if (
+                curr_char in t_counter_map
+                and win_counts[curr_char] == t_counter_map[curr_char]
+            ):
+                num_chars_used_from_target += (
+                    1  # add 1 to represent another char is "consumed" from target
+                )
 
             # shrink the window while the window satisfy the constraint: all chars from target consumed
             while left <= right and num_chars_used_from_target == required_count:
@@ -110,12 +120,17 @@ class MinWindow:
                     win_left = left  # answer start index
                     win_right = right  # answer end index
 
-                win_counts[curr_char] -= 1  # while shrinking the window, we subtract 1 for each char we encounter
-                if curr_char in t_counter_map and win_counts[curr_char] < t_counter_map[curr_char]:
+                win_counts[
+                    curr_char
+                ] -= 1  # while shrinking the window, we subtract 1 for each char we encounter
+                if (
+                    curr_char in t_counter_map
+                    and win_counts[curr_char] < t_counter_map[curr_char]
+                ):
                     # subtracting 1 represents another char is "put back" in the target, thus, not consumed
                     num_chars_used_from_target -= 1
                 left += 1
 
             right += 1
 
-        return "" if win_size == -1 else src_string[win_left: win_right + 1]
+        return "" if win_size == -1 else src_string[win_left : win_right + 1]
