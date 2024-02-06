@@ -28,7 +28,7 @@ Constraints:
 0 <= strs[i].length <= 100
 strs[i] consists of lowercase English letters
 """
-from collections import defaultdict, Counter
+from collections import Counter, defaultdict
 from typing import List
 
 
