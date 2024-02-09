@@ -37,7 +37,6 @@ class Solution:
         return dfs(0, 1)
 
     def solve_memoization_optimized(self, nums: List[int]) -> List[int]:
-
         nums.sort()  # sort in place to save space. Side effect is bad!
         n = len(nums)
 
@@ -85,7 +84,7 @@ class Solution:
         return longest
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(Solution().solve_memoization([1, 2, 3]))
     print(Solution().solve_memoization_optimized([1, 2, 3]))
     print(Solution().solve_dp_bottom_up([1, 2, 3]))

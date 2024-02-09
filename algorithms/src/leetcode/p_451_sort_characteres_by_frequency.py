@@ -47,7 +47,7 @@ class FrequencySort:
         while counter:
             key, qtt = counter.most_common(1)[0]
             answer += key * qtt
-            del (counter[key])
+            del counter[key]
         return answer
 
     def solve_with_array(self, s: str) -> str:
@@ -56,10 +56,7 @@ class FrequencySort:
         """
         counter = Counter(s)
 
-        elements = sorted(
-            [(qtt, char) for char, qtt in counter.items()],
-            reverse=True
-        )
+        elements = sorted([(qtt, char) for char, qtt in counter.items()], reverse=True)
 
         answer = ""
         for e in elements:
@@ -79,9 +76,9 @@ class FrequencySort:
         return answer
 
 
-if __name__ == '__main__':
-    print(FrequencySort().solve_with_heap("tree")) #-> eetr
-    print(FrequencySort().solve_with_heap("cccaaa")) #-> "aaaccc"
-    print(FrequencySort().solve_with_heap("Aabb")) #-> "bbAa"
+if __name__ == "__main__":
+    print(FrequencySort().solve_with_heap("tree"))  # -> eetr
+    print(FrequencySort().solve_with_heap("cccaaa"))  # -> "aaaccc"
+    print(FrequencySort().solve_with_heap("Aabb"))  # -> "bbAa"
     print(FrequencySort().solve_with_heap("raaeaedere"))  # -> "eeeeaaarrd"
     print(FrequencySort().solve_with_heap("abaccadeeefaafcc"))  # -> "aaaaacccceeeffdb"
