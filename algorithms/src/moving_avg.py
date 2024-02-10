@@ -2,7 +2,6 @@ from collections import deque
 
 
 class MovingAverage:
-
     def __init__(self, size: int):
         self._elements = deque(maxlen=size)
         self._current_sum = 0.0
@@ -29,7 +28,7 @@ def warm_up(avg_wrapper, n, verbose=False):
         avg_wrapper.next(i, verbose)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     size, next_value = 10, 15
     avg_sequence = MovingAverage(size)
 
