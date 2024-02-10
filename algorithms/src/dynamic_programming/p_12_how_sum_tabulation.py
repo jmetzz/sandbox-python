@@ -24,7 +24,7 @@ def solve_tabulation(target: int, arr: List[int]) -> Optional[List[int]]:
     pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(solve_tabulation(7, [2, 3]))
     print(solve_tabulation(7, [5, 3, 4, 7]))
     print(solve_tabulation(7, [2, 4]))
