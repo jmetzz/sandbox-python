@@ -5,7 +5,7 @@ The only actions allowed are:
 2. move right
 
 """
-from typing import Tuple, Dict
+from typing import Dict, Tuple
 
 
 def solve_recursive(m: int, n: int) -> int:
@@ -37,7 +37,7 @@ def solve_memoization(m: int, n: int, cache: Dict) -> int:
     return cache[key]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     memo = dict()
     value = solve_memoization(2, 3, memo)
     print(value)

@@ -11,7 +11,7 @@ def solve_tabulation(m: int, n: int) -> int:
     pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     memo = dict()
     value = solve_tabulation(2, 3)
     print(value)

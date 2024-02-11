@@ -9,7 +9,7 @@ You may use an element of the array as many times as needed.
 You may assume that all input numbers are non-negative.
 """
 
-from typing import List, Dict
+from typing import Dict, List
 
 
 def solve_recursive(target: int, arr: List[int]) -> bool:
