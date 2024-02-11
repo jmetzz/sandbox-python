@@ -41,7 +41,7 @@ Follow up:
 If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
 If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
 """
-from heapq import heappush, heappop
+from heapq import heappop, heappush
 
 
 class MedianFinder:
@@ -74,7 +74,7 @@ class MedianFinder:
         return self.right[0] if len(self.left) < len(self.right) else -self.left[0]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Your MedianFinder object will be instantiated and called as such:
     obj = MedianFinder()
     obj.addNum(1)
