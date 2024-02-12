@@ -56,7 +56,9 @@ class MaxLengthStrWithUniqueChars:
         for i in range(start, len(arr)):
             if self._invalid(current, arr[i]):
                 continue
-            max_len = max(max_len, self._back_track(arr, current + arr[i], i + 1, max_len))
+            max_len = max(
+                max_len, self._back_track(arr, current + arr[i], i + 1, max_len)
+            )
         return max(max_len, len(current))
 
     def _clean_up(self, arr: List) -> List:
@@ -81,6 +83,6 @@ class MaxLengthStrWithUniqueChars_dfs:
     #         dfs(path + arr[i], i + 1, result)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(MaxLengthStrWithUniqueChars().solve(["un", "iq", "ue"]))
     print(MaxLengthStrWithUniqueChars().solve(["cha", "r", "act", "ers"]))

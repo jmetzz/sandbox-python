@@ -49,7 +49,9 @@ def cherryPickup_one_robot_dp_full_table(grid: List[List[int]]) -> int:
     for i in range(1, rows):
         for j in range(cols):
             parent_value = dp[i - 1][j]
-            for k in range(j - 1, j + 2):  # remember range second argument is not inclusive
+            for k in range(
+                j - 1, j + 2
+            ):  # remember range second argument is not inclusive
                 if k < 0 or k >= cols:
                     continue  # skip invalid positions
                 dp[i][k] = max(dp[i][k], parent_value + grid[i][k])
@@ -58,13 +60,15 @@ def cherryPickup_one_robot_dp_full_table(grid: List[List[int]]) -> int:
     return dp[r][c]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     grid_1 = [[3, 1, 1], [2, 5, 1], [1, 5, 5], [2, 1, 1]]
-    grid_2 = [[1, 0, 0, 0, 0, 0, 1],
-              [2, 0, 0, 0, 0, 3, 0],
-              [2, 0, 9, 0, 0, 0, 0],
-              [0, 3, 0, 5, 4, 0, 0],
-              [1, 0, 2, 3, 0, 0, 6]]
+    grid_2 = [
+        [1, 0, 0, 0, 0, 0, 1],
+        [2, 0, 0, 0, 0, 3, 0],
+        [2, 0, 9, 0, 0, 0, 0],
+        [0, 3, 0, 5, 4, 0, 0],
+        [1, 0, 2, 3, 0, 0, 6],
+    ]
     grid_3 = [[0, 1, -1], [1, 0, -1], [1, 1, 1]]
     grid_4 = [[1, 1, -1], [1, -1, 1], [-1, 1, 1]]
     print(cherryPickup_one_robot_dp_full_table(grid_1))

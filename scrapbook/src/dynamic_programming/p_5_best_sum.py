@@ -22,15 +22,15 @@ Examples:
 
 """
 
-from typing import List, Dict, Optional
+from typing import Dict, List, Optional
 
 
 def solve_dfs_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
     """Solution using brute force recursion
-        Exhaustive search exploring the full recursion tree
+    Exhaustive search exploring the full recursion tree
 
-        O() time
-        O() space
+    O() time
+    O() space
     """
     if target == 0:
         return []
@@ -49,10 +49,10 @@ def solve_dfs_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
 
 def solve_memoization(target: int, arr: List[int], cache) -> Optional[List[int]]:
     """Solution using brute force recursion
-        Exhaustive search exploring the full recursion tree
+    Exhaustive search exploring the full recursion tree
 
-        O(m^2 * n) time
-        O(m^2) space
+    O(m^2 * n) time
+    O(m^2) space
     """
     if target in cache:
         return cache[target]
@@ -75,7 +75,7 @@ def solve_memoization(target: int, arr: List[int], cache) -> Optional[List[int]]
     return cache[target]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(solve_dfs_recursive(7, [5, 3, 4, 7]))
     print(solve_dfs_recursive(8, [2, 3, 5]))
     print(solve_dfs_recursive(8, [1, 4, 5]))
@@ -86,4 +86,3 @@ if __name__ == '__main__':
     print(solve_memoization(8, [2, 3, 5], {}))
     print(solve_memoization(8, [1, 4, 5], {}))
     print(solve_memoization(100, [1, 2, 5, 25], {}))
-

@@ -68,12 +68,14 @@ def cherryPickup_two_robots_dfs(grid: List[List[int]]) -> int:
             return 0
         if robot_1 < 0 or robot_2 < 0 or robot_1 >= cols or robot_2 >= cols:
             # out of bounds base case
-            return float('-inf')
+            return float("-inf")
 
         answer = 0
         for k in range(3):
             for r in range(3):
-                answer = max(answer, dfs(row + 1, robot_1 + delta[k], robot_2 + delta[r]))
+                answer = max(
+                    answer, dfs(row + 1, robot_1 + delta[k], robot_2 + delta[r])
+                )
 
         if robot_1 == robot_2:
             # collision case
@@ -109,12 +111,14 @@ def cherryPickup_two_robots_dfs_memoization(grid: List[List[int]]) -> int:
             return 0
         if robot_1 < 0 or robot_2 < 0 or robot_1 >= cols or robot_2 >= cols:
             # out of bounds base case
-            return float('-inf')
+            return float("-inf")
 
         answer = 0
         for k in range(3):
             for r in range(3):
-                answer = max(answer, dfs(row + 1, robot_1 + delta[k], robot_2 + delta[r]))
+                answer = max(
+                    answer, dfs(row + 1, robot_1 + delta[k], robot_2 + delta[r])
+                )
 
         if robot_1 == robot_2:
             # collision case
@@ -128,17 +132,29 @@ def cherryPickup_two_robots_dfs_memoization(grid: List[List[int]]) -> int:
     return dfs(row=0, robot_1=0, robot_2=cols - 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     grid_1 = [[3, 1, 1], [2, 5, 1], [1, 5, 5], [2, 1, 1]]
-    grid_2 = [[1, 0, 0, 0, 0, 0, 1],
-              [2, 0, 0, 0, 0, 3, 0],
-              [2, 0, 9, 0, 0, 0, 0],
-              [0, 3, 0, 5, 4, 0, 0],
-              [1, 0, 2, 3, 0, 0, 6]]
+    grid_2 = [
+        [1, 0, 0, 0, 0, 0, 1],
+        [2, 0, 0, 0, 0, 3, 0],
+        [2, 0, 9, 0, 0, 0, 0],
+        [0, 3, 0, 5, 4, 0, 0],
+        [1, 0, 2, 3, 0, 0, 6],
+    ]
 
     print(cherryPickup_two_robots_dfs_memoization(grid_2))
-    grid_3 = [[8, 8, 10, 9, 1, 7], [8, 8, 1, 8, 4, 7], [8, 6, 10, 3, 7, 7], [3, 0, 9, 3, 2, 7], [6, 8, 9, 4, 2, 5],
-              [1, 1, 5, 8, 8, 1], [5, 6, 5, 2, 9, 9], [4, 4, 6, 2, 5, 4], [4, 4, 5, 3, 1, 6], [9, 2, 2, 1, 9, 3]]
+    grid_3 = [
+        [8, 8, 10, 9, 1, 7],
+        [8, 8, 1, 8, 4, 7],
+        [8, 6, 10, 3, 7, 7],
+        [3, 0, 9, 3, 2, 7],
+        [6, 8, 9, 4, 2, 5],
+        [1, 1, 5, 8, 8, 1],
+        [5, 6, 5, 2, 9, 9],
+        [4, 4, 6, 2, 5, 4],
+        [4, 4, 5, 3, 1, 6],
+        [9, 2, 2, 1, 9, 3],
+    ]
 
     print(cherryPickup_two_robots_dfs(grid_3))  # 146 -- slow
     print(cherryPickup_two_robots_dfs_memoization(grid_3))  # 146 -- fast
