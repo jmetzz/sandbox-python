@@ -27,12 +27,11 @@ Follow-up: Could you solve the problem in linear time and in O(1) space?
 """
 import heapq
 import math
-from collections import defaultdict, Counter
+from collections import Counter, defaultdict
 from typing import List, Optional
 
 
 class MajorityElement:
-
     def solve_counter(self, nums: List[int]) -> Optional[int]:
         if not nums:
             return None
@@ -51,7 +50,13 @@ class MajorityElement:
             if counter[most_frequent] > counter[e]:
                 most_frequent = e
 
-        strict = all([counter[most_frequent] > c for key, c in counter.items() if key != most_frequent])
+        strict = all(
+            [
+                counter[most_frequent] > c
+                for key, c in counter.items()
+                if key != most_frequent
+            ]
+        )
         return most_frequent if strict else None
 
     def solve_heap(self, nums: List[int]) -> Optional[int]:
@@ -103,7 +108,7 @@ class MajorityElement:
         return None
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solver = MajorityElement()
 
     input_arr = [3, 2, 3]
