@@ -44,7 +44,7 @@ class FirstPalindrome:
         return ""
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(FirstPalindrome().solve(["abc", "car", "ada", "racecar", "cool"]))
     print(FirstPalindrome().solve(["notapalindrome", "racecar"]))
     print(FirstPalindrome().solve(["def", "ghi"]))
