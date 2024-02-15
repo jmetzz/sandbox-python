@@ -3,7 +3,6 @@ from typing import List
 
 
 class FindPolygonWithLargestPerimeter:
-
     def solve_with_loop(self, nums: List[int]) -> int:
         nums.sort()
         n = len(nums)
@@ -36,7 +35,7 @@ class FindPolygonWithLargestPerimeter:
         return -1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(FindPolygonWithLargestPerimeter().solve_with_loop([1, 12, 1, 2, 5, 3, 50]))
     print(FindPolygonWithLargestPerimeter().solve_with_heap([1, 12, 1, 2, 5, 3, 50]))
     print(FindPolygonWithLargestPerimeter().solve_reversed([1, 12, 1, 2, 5, 3, 50]))
