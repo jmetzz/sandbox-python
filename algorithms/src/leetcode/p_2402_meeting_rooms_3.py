@@ -56,7 +56,7 @@ meetings[i].length == 2
 All the values of starti are unique.
 """
 import heapq
-from heapq import heapify, heappush, heappop
+from heapq import heapify, heappop, heappush
 from typing import List
 
 
@@ -122,9 +122,11 @@ class MostBookedMeetingRoom3:
 
             if not found_available_room:
                 # use the room with the earliest available time
-                next_available_start[earliest_room] += (end - start)  # add duration of m
+                next_available_start[earliest_room] += end - start  # add duration of m
                 meetings_count[earliest_room] += 1
-        return meetings_count.index(max(meetings_count))  # index of the first occurrence max in the list
+        return meetings_count.index(
+            max(meetings_count)
+        )  # index of the first occurrence max in the list
 
     def solve_with_heap(self, n: int, meetings: List[List[int]]) -> int:
         """
