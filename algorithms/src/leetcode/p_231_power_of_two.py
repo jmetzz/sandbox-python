@@ -33,7 +33,6 @@ import numpy
 
 
 class PowerOfTwo:
-
     def solve_loop(self, n) -> bool:
         if n <= 0:
             return False
