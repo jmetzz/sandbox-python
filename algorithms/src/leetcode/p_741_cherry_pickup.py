@@ -41,12 +41,11 @@ from typing import List
 
 
 class CherryPickup:
-
     def solve(self, grid: List[List[int]]) -> int:
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     grid_1 = [[0, 1, 0], [1, 0, 0], [1, 1, 1]]  # -> 5
     grid_2 = [[1, 1, -1], [1, -1, 1], [-1, 1, 1]]  # -> 0
 

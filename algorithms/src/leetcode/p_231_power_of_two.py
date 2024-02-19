@@ -33,7 +33,6 @@ import numpy
 
 
 class PowerOfTwo:
-
     def solve_mathematically(self, n: int) -> bool:
         return float.is_integer(numpy.log2(n))
 
