@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_169_majority_element import MajorityElement
 
 INPUT_1 = []  # --> None

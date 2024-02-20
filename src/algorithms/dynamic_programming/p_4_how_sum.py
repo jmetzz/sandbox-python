@@ -37,7 +37,9 @@ def solve_recursive(target: int, arr: List[int]) -> Optional[List[int]]:
     return None
 
 
-def solve_memoization(target: int, arr: List[int], cache: Dict[int, List[int]]) -> Optional[List[int]]:
+def solve_memoization(
+    target: int, arr: List[int], cache: Dict[int, List[int]]
+) -> Optional[List[int]]:
     """Solution using memoization
 
     O(n * m^2) time

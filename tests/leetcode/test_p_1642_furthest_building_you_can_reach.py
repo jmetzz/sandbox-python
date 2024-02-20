@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1642_furthest_building_you_can_reach import FurthestBuilding
 
 
@@ -12,4 +13,6 @@ from leetcode.p_1642_furthest_building_you_can_reach import FurthestBuilding
     ],
 )
 def test_furthest_building(input_heights, input_bricks, input_ladders, expected):
-    assert FurthestBuilding().solve(input_heights, input_bricks, input_ladders) == expected
+    assert (
+        FurthestBuilding().solve(input_heights, input_bricks, input_ladders) == expected
+    )

@@ -34,7 +34,9 @@ def cherryPickup_one_robot(grid: List[List[int]]) -> int:
     for i in range(1, rows):
         for j in range(cols):
             parent_value = dp[i - 1][j]
-            for k in range(j - 1, j + 2):  # remember range second argument is not inclusive
+            for k in range(
+                j - 1, j + 2
+            ):  # remember range second argument is not inclusive
                 if k < 0 or k >= cols:
                     continue  # skip invalid positions
                 dp[i][k] = max(dp[i][k], parent_value + grid[i][k])

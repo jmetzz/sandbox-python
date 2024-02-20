@@ -74,7 +74,9 @@ def cherryPickup_two_robots_dfs(grid: List[List[int]]) -> int:
         answer = 0
         for k in range(3):
             for r in range(3):
-                answer = max(answer, dfs(row + 1, robot_1 + delta[k], robot_2 + delta[r]))
+                answer = max(
+                    answer, dfs(row + 1, robot_1 + delta[k], robot_2 + delta[r])
+                )
 
         if robot_1 == robot_2:
             # collision case
@@ -115,7 +117,9 @@ def cherryPickup_two_robots_dfs_memoization(grid: List[List[int]]) -> int:
         answer = 0
         for k in range(3):
             for r in range(3):
-                answer = max(answer, dfs(row + 1, robot_1 + delta[k], robot_2 + delta[r]))
+                answer = max(
+                    answer, dfs(row + 1, robot_1 + delta[k], robot_2 + delta[r])
+                )
 
         if robot_1 == robot_2:
             # collision case

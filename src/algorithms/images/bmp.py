@@ -23,12 +23,16 @@ def write_grayscale(filename, pixels):
         bmp.write(b"BM")  # write bytes data b''
 
         size_bookmark = bmp.tell()  # The next four bytes hold the filesize as a 32-bit
-        bmp.write(b"\x00\x00\x00\x00")  # little-endian integer. Zero placeholder for now
+        bmp.write(
+            b"\x00\x00\x00\x00"
+        )  # little-endian integer. Zero placeholder for now
 
         bmp.write(b"\x00\x00")  # Unused 16-bit integer - should be zero
         bmp.write(b"\x00\x00")  # Unused 16-bit integer - should be zero
 
-        pixel_offset_bookmark = bmp.tell()  # The next four bytes hold the integer offset
+        pixel_offset_bookmark = (
+            bmp.tell()
+        )  # The next four bytes hold the integer offset
         bmp.write(b"\x00\x00\x00\x00")  # to the pixel data. Zero placeholder for now
 
         # Image Header
@@ -53,7 +57,9 @@ def write_grayscale(filename, pixels):
         for row in reversed(pixels):  # BMP files are bottom to top
             row_data = bytes(row)
             bmp.write(row_data)
-            padding = b"\x00" * (4 - (len(row) % 4))  # Pad row to multiple of four bytes
+            padding = b"\x00" * (
+                4 - (len(row) % 4)
+            )  # Pad row to multiple of four bytes
             bmp.write(padding)
 
         # End of file

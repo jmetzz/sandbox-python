@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_268_missing_number import MissingNumber
 
 

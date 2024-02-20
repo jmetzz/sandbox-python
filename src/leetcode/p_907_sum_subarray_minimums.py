@@ -81,7 +81,10 @@ class SumSubarrayMinsStackingA:
                 right_idx[idx] = stack[-1][0]
             stack.append((idx, arr[idx]))  # (idx, value)
 
-        min_value_frequency = [(i - left_idx[i]) * (right_idx[i] - i) * value for i, value in enumerate(arr)]
+        min_value_frequency = [
+            (i - left_idx[i]) * (right_idx[i] - i) * value
+            for i, value in enumerate(arr)
+        ]
         subtotal = sum(min_value_frequency)
         return subtotal % 1000000007  # (10 ** 9 + 7)
 

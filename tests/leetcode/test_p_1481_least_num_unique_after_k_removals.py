@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_1481_least_num_unique_after_k_removals import (
     FindLeastNumOfUniqueAfterRemoval,
 )
@@ -13,7 +14,10 @@ from leetcode.p_1481_least_num_unique_after_k_removals import (
     ],
 )
 def test_least_num_unique_after_removal_heap(test_input_arr, test_input_k, expected):
-    assert FindLeastNumOfUniqueAfterRemoval().solve_with_heap(test_input_arr, test_input_k) == expected
+    assert (
+        FindLeastNumOfUniqueAfterRemoval().solve_with_heap(test_input_arr, test_input_k)
+        == expected
+    )
 
 
 @pytest.mark.parametrize(
@@ -25,7 +29,12 @@ def test_least_num_unique_after_removal_heap(test_input_arr, test_input_k, expec
     ],
 )
 def test_least_num_unique_after_removal_array(test_input_arr, test_input_k, expected):
-    assert FindLeastNumOfUniqueAfterRemoval().solve_with_array(test_input_arr, test_input_k) == expected
+    assert (
+        FindLeastNumOfUniqueAfterRemoval().solve_with_array(
+            test_input_arr, test_input_k
+        )
+        == expected
+    )
 
 
 @pytest.mark.parametrize(
@@ -37,7 +46,12 @@ def test_least_num_unique_after_removal_array(test_input_arr, test_input_k, expe
     ],
 )
 def test_least_num_unique_after_removal_loop(test_input_arr, test_input_k, expected):
-    assert FindLeastNumOfUniqueAfterRemoval().solve_with_one_loop(test_input_arr, test_input_k) == expected
+    assert (
+        FindLeastNumOfUniqueAfterRemoval().solve_with_one_loop(
+            test_input_arr, test_input_k
+        )
+        == expected
+    )
 
 
 @pytest.mark.parametrize(
@@ -48,5 +62,10 @@ def test_least_num_unique_after_removal_loop(test_input_arr, test_input_k, expec
         ([2, 4, 1, 8, 3, 5, 1, 3], 3, 3),
     ],
 )
-def test_least_num_unique_after_removal_ffreitas(test_input_arr, test_input_k, expected):
-    assert FindLeastNumOfUniqueAfterRemoval().solve_ffreitas(test_input_arr, test_input_k) == expected
+def test_least_num_unique_after_removal_ffreitas(
+    test_input_arr, test_input_k, expected
+):
+    assert (
+        FindLeastNumOfUniqueAfterRemoval().solve_ffreitas(test_input_arr, test_input_k)
+        == expected
+    )

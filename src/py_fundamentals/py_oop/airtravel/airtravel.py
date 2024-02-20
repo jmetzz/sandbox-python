@@ -90,7 +90,11 @@ class Flight:
         self._seating[from_row][from_letter] = None
 
     def num_available_seats(self):
-        return sum(sum(1 for seat in row.values() if seat is None) for row in self._seating if row is not None)
+        return sum(
+            sum(1 for seat in row.values() if seat is None)
+            for row in self._seating
+            if row is not None
+        )
 
     def make_boarding_cards(self, card_printer):
         for passenger, seat in sorted(self._passenger_seats()):
@@ -124,7 +128,9 @@ class Aircraft:
 
 
 def make_flight():
-    f = Flight("BA758", Aircraft("G-EFJT", "Airbus A320", num_rows=22, num_seats_per_row=6))
+    f = Flight(
+        "BA758", Aircraft("G-EFJT", "Airbus A320", num_rows=22, num_seats_per_row=6)
+    )
     f.allocate_seat("12A", "John Doe")
     f.allocate_seat("15F", "Isaac Newton")
     f.allocate_seat("15E", "Pablo Picasso")
@@ -134,7 +140,13 @@ def make_flight():
 
 
 def console_card_printer(passenger, seat, flight_number, aircraft):
-    output = f"| Name: {passenger}" f"  Flight: {flight_number}" f"  Seat: {seat}" f"  Aircraft: {aircraft}" "  |"
+    output = (
+        f"| Name: {passenger}"
+        f"  Flight: {flight_number}"
+        f"  Seat: {seat}"
+        f"  Aircraft: {aircraft}"
+        "  |"
+    )
     banner = "+" + "-" * (len(output) - 2) + "+"
     border = "|" + " " * (len(output) - 2) + "|"
     lines = [banner, border, output, border, banner]

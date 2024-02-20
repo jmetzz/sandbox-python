@@ -16,8 +16,9 @@ from typing import Optional
 import pyinstrument
 import pyinstrument_flame
 import typer
-from algorithms.juliaset import calc_pure_python
 from cli_config import LOGGING_CONFIG, THIS_DIR
+
+from algorithms.juliaset import calc_pure_python
 
 app = typer.Typer()
 
@@ -80,8 +81,16 @@ def use_cprofiler(
         filename = tmp_file.name
         if save:
             Path(THIS_DIR, PROFILE_DATA_FILE).mkdir(parents=True, exist_ok=True)
-            c_profiler.dump_stats(str(Path(THIS_DIR, PROFILE_DATA_FILE, f"{width}-{iterations}-cprof.prof")))
-            print(f"Output file written: '{THIS_DIR}/{PROFILE_DATA_FILE}/{width}-{iterations}-cprof.prof'")
+            c_profiler.dump_stats(
+                str(
+                    Path(
+                        THIS_DIR, PROFILE_DATA_FILE, f"{width}-{iterations}-cprof.prof"
+                    )
+                )
+            )
+            print(
+                f"Output file written: '{THIS_DIR}/{PROFILE_DATA_FILE}/{width}-{iterations}-cprof.prof'"
+            )
         if visualize:
             c_profiler.dump_stats(filename)
             subprocess.Popen(["snakeviz", filename])
@@ -111,7 +120,9 @@ def use_pyinstrument(
             file.write(inst_profiler.output_html())
 
         if flame:
-            renderer = pyinstrument_flame.FlameGraphRenderer(title=f"{width}-{iterations}", flamechart=True)
+            renderer = pyinstrument_flame.FlameGraphRenderer(
+                title=f"{width}-{iterations}", flamechart=True
+            )
             with open(f"{width}-{iterations}-pyinst-flame.html", "w") as file:
                 file.write(inst_profiler.output(renderer))
 
@@ -142,25 +153,36 @@ def mem(
         content = [f"MEM {mem:.6f} {ts:.4f}\n" for mem, ts in usage]
         tmp_file.writelines(content)
 
-    subprocess.run(["python", "-m", "mprof", "plot", "--flame", tmp_file.name], check=True)
+    subprocess.run(
+        ["python", "-m", "mprof", "plot", "--flame", tmp_file.name], check=True
+    )
 
     if save:
         Path(THIS_DIR, PROFILE_DATA_FILE).mkdir(parents=True, exist_ok=True)
         filename = str(Path(THIS_DIR, PROFILE_DATA_FILE, f"{width}-{iterations}.dot"))
         shutil.move(tmp_file.name, filename)
     print("You can plot the chart again with:")
-    print("\t$ python -m mprof plot -t 'Your title' <width-iterations.dot> --backend MacOSX")
+    print(
+        "\t$ python -m mprof plot -t 'Your title' <width-iterations.dot> --backend MacOSX"
+    )
 
 
 @app.command()
-def timeit_cli(loops: Optional[int] = typer.Option(None, "--loops"), reps: int = typer.Option(1, "--reps")) -> None:
+def timeit_cli(
+    loops: Optional[int] = typer.Option(None, "--loops"),
+    reps: int = typer.Option(1, "--reps"),
+) -> None:
     """Utility function to calculate the time to run a code statement"""
     setup_code = Template(SETUP_TEMPLATE).substitute()
 
     stmt_code = Template(STMT_TEMPLATE).substitute()
     if reps and loops:
-        outcome = timeit.repeat(setup=setup_code, stmt=stmt_code, repeat=reps, number=loops)
-        print(f"Best time '{min(outcome)}'s; '{loops}' loops and {reps} repeats per loop")
+        outcome = timeit.repeat(
+            setup=setup_code, stmt=stmt_code, repeat=reps, number=loops
+        )
+        print(
+            f"Best time '{min(outcome)}'s; '{loops}' loops and {reps} repeats per loop"
+        )
     else:
         loops, outcome = timeit.Timer(setup=setup_code, stmt=stmt_code).autorange()
         print(f"Execution time '{outcome}'s in '{loops}' loops")

@@ -52,7 +52,13 @@ def mandelbrot(size_x, size_y):
     Returns:
         A list of lists of integers in the range 0-255
     """
-    return [[mandel((3.5 * x / size_x) - 2.5, (2.0 * y / size_y) - 1.0) for x in range(size_x)] for y in range(size_y)]
+    return [
+        [
+            mandel((3.5 * x / size_x) - 2.5, (2.0 * y / size_y) - 1.0)
+            for x in range(size_x)
+        ]
+        for y in range(size_y)
+    ]
 
 
 if __name__ == "__main__":

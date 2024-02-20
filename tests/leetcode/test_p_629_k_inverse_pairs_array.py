@@ -1,6 +1,7 @@
 from typing import Tuple
 
 import pytest
+
 from leetcode.p_629_k_inverse_pairs_array import KInversePairsArray
 
 
@@ -28,7 +29,10 @@ def test_k_inverse_pairs_array_memo(test_input: Tuple, expected: int):
     ],
 )
 def test_k_inverse_pairs_array_full_grid(test_input: Tuple, expected: int):
-    assert KInversePairsArray().solve_dp_full_grid(test_input[0], test_input[1]) == expected
+    assert (
+        KInversePairsArray().solve_dp_full_grid(test_input[0], test_input[1])
+        == expected
+    )
 
 
 @pytest.mark.parametrize(
@@ -43,7 +47,10 @@ def test_k_inverse_pairs_array_full_grid(test_input: Tuple, expected: int):
     ],
 )
 def test_k_inverse_pairs_array_shorter_grid(test_input: Tuple, expected: int):
-    assert KInversePairsArray().solve_dp_short_grid(test_input[0], test_input[1]) == expected
+    assert (
+        KInversePairsArray().solve_dp_short_grid(test_input[0], test_input[1])
+        == expected
+    )
 
 
 @pytest.mark.parametrize(
@@ -58,4 +65,7 @@ def test_k_inverse_pairs_array_shorter_grid(test_input: Tuple, expected: int):
     ],
 )
 def test_k_inverse_pairs_array_shorter_sliding_window(test_input: Tuple, expected: int):
-    assert KInversePairsArray().solve_dp_short_sliding_window(test_input[0], test_input[1]) == expected
+    assert (
+        KInversePairsArray().solve_dp_short_sliding_window(test_input[0], test_input[1])
+        == expected
+    )

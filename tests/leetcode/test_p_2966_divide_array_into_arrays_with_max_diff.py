@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2966_divide_array_into_arrays_with_max_diff import (
     DivideArraysWithMaxDiff,
 )
@@ -12,7 +13,10 @@ from leetcode.p_2966_divide_array_into_arrays_with_max_diff import (
     ],
 )
 def test_divide_array_with_max_diff_backward(test_input_arr, test_input_k, expected):
-    assert DivideArraysWithMaxDiff().solve_backward(test_input_arr, test_input_k) == expected
+    assert (
+        DivideArraysWithMaxDiff().solve_backward(test_input_arr, test_input_k)
+        == expected
+    )
 
 
 @pytest.mark.parametrize(
@@ -23,4 +27,7 @@ def test_divide_array_with_max_diff_backward(test_input_arr, test_input_k, expec
     ],
 )
 def test_divide_array_with_max_diff_forward(test_input_arr, test_input_k, expected):
-    assert DivideArraysWithMaxDiff().solve_forward(test_input_arr, test_input_k) == expected
+    assert (
+        DivideArraysWithMaxDiff().solve_forward(test_input_arr, test_input_k)
+        == expected
+    )

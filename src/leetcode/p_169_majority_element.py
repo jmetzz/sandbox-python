@@ -50,7 +50,13 @@ class MajorityElement:
             if counter[most_frequent] > counter[e]:
                 most_frequent = e
 
-        strict = all([counter[most_frequent] > c for key, c in counter.items() if key != most_frequent])
+        strict = all(
+            [
+                counter[most_frequent] > c
+                for key, c in counter.items()
+                if key != most_frequent
+            ]
+        )
         return most_frequent if strict else None
 
     def solve_heap(self, nums: List[int]) -> Optional[int]:

@@ -29,7 +29,13 @@ class DiffusionNumpy:
 
     @classmethod
     def laplacian(cls, grid):
-        return roll(grid, +1, 0) + roll(grid, -1, 0) + roll(grid, +1, 1) + roll(grid, -1, 1) - 4 * grid
+        return (
+            roll(grid, +1, 0)
+            + roll(grid, -1, 0)
+            + roll(grid, +1, 1)
+            + roll(grid, -1, 1)
+            - 4 * grid
+        )
 
     @classmethod
     def evolve(cls, grid, dt, D=1):

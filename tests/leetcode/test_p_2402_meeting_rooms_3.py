@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_2402_meeting_rooms_3 import MostBookedMeetingRoom3
 
 
@@ -11,7 +12,12 @@ from leetcode.p_2402_meeting_rooms_3 import MostBookedMeetingRoom3
     ],
 )
 def test_most_booked_meeting_room_counting(test_input_n, test_input_meetings, expected):
-    assert MostBookedMeetingRoom3().solve_sorting_and_counting(test_input_n, test_input_meetings) == expected
+    assert (
+        MostBookedMeetingRoom3().solve_sorting_and_counting(
+            test_input_n, test_input_meetings
+        )
+        == expected
+    )
 
 
 @pytest.mark.parametrize(
@@ -23,4 +29,7 @@ def test_most_booked_meeting_room_counting(test_input_n, test_input_meetings, ex
     ],
 )
 def test_most_booked_meeting_room_heap(test_input_n, test_input_meetings, expected):
-    assert MostBookedMeetingRoom3().solve_with_heap(test_input_n, test_input_meetings) == expected
+    assert (
+        MostBookedMeetingRoom3().solve_with_heap(test_input_n, test_input_meetings)
+        == expected
+    )

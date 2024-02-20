@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_576_out_of_boundary_paths import OutOfBoundaryPaths
 
 
@@ -11,7 +12,9 @@ from leetcode.p_576_out_of_boundary_paths import OutOfBoundaryPaths
         (1, 3, 3, 0, 1, 12),
     ],
 )
-def test_out_of_boundary_paths_recursive(m, n, max_moves, start_row, start_col, expected):
+def test_out_of_boundary_paths_recursive(
+    m, n, max_moves, start_row, start_col, expected
+):
     actual = OutOfBoundaryPaths().solve_recursive(m, n, max_moves, start_row, start_col)
     assert actual == expected
 

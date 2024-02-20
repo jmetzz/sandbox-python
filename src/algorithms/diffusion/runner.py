@@ -12,7 +12,9 @@ from src.algorithms.diffusion.diffusion_numexpr import DiffusionNumexpr
 
 class Runner:
     @staticmethod
-    def run_experiment(diffuser, num_iterations, dt=0.1, low_factor=0.4, high_factor=0.5):
+    def run_experiment(
+        diffuser, num_iterations, dt=0.1, low_factor=0.4, high_factor=0.5
+    ):
         next_grid = np.zeros(diffuser.grid_shape)
         grid = np.zeros(diffuser.grid_shape)
 

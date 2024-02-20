@@ -85,7 +85,12 @@ class FindLeastNumOfUniqueAfterRemoval:
         [2,4,1,8,3,5,1,3], k=3 --> expected is 3
         """
         counter = Counter(arr)
-        counter = sorted([(count, size) for count, size in Counter([c for c in counter.values()]).items()])
+        counter = sorted(
+            [
+                (count, size)
+                for count, size in Counter([c for c in counter.values()]).items()
+            ]
+        )
         idx = 0
         residual = 0
         while k > 0 and idx < len(counter):

@@ -131,7 +131,10 @@ class SuffixTree:
     """
 
     def _lcp(self, text, suffix_array):
-        return [self._common_prefix_length(text, idx, idx + 1) for idx in range(suffix_array)]
+        return [
+            self._common_prefix_length(text, idx, idx + 1)
+            for idx in range(suffix_array)
+        ]
 
     @staticmethod
     def _common_prefix_length(text: str, i: int, j: int) -> int:
@@ -223,7 +226,9 @@ class SuffixArray:
         return classes
 
     @staticmethod
-    def stable_sort_cyclic_shifts(text: str, shift_length, order: List[int], classes: List[int]) -> List[int]:
+    def stable_sort_cyclic_shifts(
+        text: str, shift_length, order: List[int], classes: List[int]
+    ) -> List[int]:
         """
         Uses counting sort to stable sort the cyclic shifts with the given length.
 
@@ -254,7 +259,9 @@ class SuffixArray:
         return new_order
 
     @staticmethod
-    def update_classes(new_order: List[int], classes: List[int], shift_length: int) -> List[int]:
+    def update_classes(
+        new_order: List[int], classes: List[int], shift_length: int
+    ) -> List[int]:
         """
         Complexity time is linear.
 

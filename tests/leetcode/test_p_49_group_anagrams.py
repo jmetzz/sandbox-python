@@ -1,6 +1,7 @@
 from typing import List
 
 import pytest
+
 from leetcode.p_49_group_anagrams import GroupAnagrams
 
 
@@ -36,7 +37,9 @@ def test_group_anagrams(test_input: List[str], expected: List[List[str]]):
         ),
     ],
 )
-def test_group_anagrams_with_custom_signature(test_input: List[str], expected: List[List[str]]):
+def test_group_anagrams_with_custom_signature(
+    test_input: List[str], expected: List[List[str]]
+):
     for e in expected:
         e.sort()
 

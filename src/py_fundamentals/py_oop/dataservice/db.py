@@ -191,8 +191,12 @@ class DataAccess:
             if default_connection_pool is None:
                 logger.info("setting default connection pool")
                 if self.configuration is None:
-                    raise ValueError("No configuration set, please call DataAccess.configure")
-                connection_pool = default_connection_pool = make_conn_pool(**self.configuration)
+                    raise ValueError(
+                        "No configuration set, please call DataAccess.configure"
+                    )
+                connection_pool = default_connection_pool = make_conn_pool(
+                    **self.configuration
+                )
             else:
                 connection_pool = default_connection_pool
 
@@ -229,7 +233,9 @@ class DataAccess:
         self.connection_pool.closeall()
         self.connection_pool = make_conn_pool(**self.configuration)
 
-    def _execute_sql_query(self, sql_query: str, params: Dict[str, Any], return_all: Optional[bool] = None):
+    def _execute_sql_query(
+        self, sql_query: str, params: Dict[str, Any], return_all: Optional[bool] = None
+    ):
         with get_db_connection(self.connection_pool) as conn, conn.cursor() as cursor:
             cursor.execute(sql_query, params or {})
             if return_all is not None:
@@ -304,7 +310,9 @@ class DataAccess:
         if params:
             sql_query = sql_query % params
 
-        with get_db_connection(self.connection_pool) as conn, conn.cursor() as cursor, TemporaryFile() as temp_file:
+        with get_db_connection(
+            self.connection_pool
+        ) as conn, conn.cursor() as cursor, TemporaryFile() as temp_file:
             # TODO: consider using StringIO objects to avoid writing to disk
             copy_sql = f"COPY ({sql_query}) TO STDOUT WITH CSV HEADER"
             cursor.copy_expert(copy_sql, temp_file)

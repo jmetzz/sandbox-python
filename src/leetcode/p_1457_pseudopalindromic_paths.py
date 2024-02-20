@@ -89,7 +89,9 @@ class PseudoPalindromicPaths_recursive:
         if not node.left and not node.right:
             return 1 if path & (path - 1) == 0 else 0
 
-        return self._count_solutions(node.left, path) + self._count_solutions(node.right, path)
+        return self._count_solutions(node.left, path) + self._count_solutions(
+            node.right, path
+        )
 
 
 def df_traverse(node: TreeNode) -> List:

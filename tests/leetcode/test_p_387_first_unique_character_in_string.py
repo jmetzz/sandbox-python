@@ -1,4 +1,5 @@
 import pytest
+
 from leetcode.p_387_first_unique_character_in_string import FirstUniqChar
 
 

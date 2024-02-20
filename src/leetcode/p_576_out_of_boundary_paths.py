@@ -17,10 +17,18 @@ class OutOfBoundaryPaths:
             return 0
 
         counter = (
-            self.solve_recursive(num_rows, num_cols, max_moves - 1, start_row - 1, start_col)  # up
-            + self.solve_recursive(num_rows, num_cols, max_moves - 1, start_row + 1, start_col)  # down
-            + self.solve_recursive(num_rows, num_cols, max_moves - 1, start_row, start_col - 1)  # left
-            + self.solve_recursive(num_rows, num_cols, max_moves - 1, start_row, start_col + 1)  # right
+            self.solve_recursive(
+                num_rows, num_cols, max_moves - 1, start_row - 1, start_col
+            )  # up
+            + self.solve_recursive(
+                num_rows, num_cols, max_moves - 1, start_row + 1, start_col
+            )  # down
+            + self.solve_recursive(
+                num_rows, num_cols, max_moves - 1, start_row, start_col - 1
+            )  # left
+            + self.solve_recursive(
+                num_rows, num_cols, max_moves - 1, start_row, start_col + 1
+            )  # right
         )
 
         return counter % 1000000007  # 10**9 + 7
@@ -44,10 +52,18 @@ class OutOfBoundaryPaths:
             return 0
 
         counter = (
-            self.solve_memo(num_rows, num_cols, max_moves - 1, start_row - 1, start_col, cache)  # up
-            + self.solve_memo(num_rows, num_cols, max_moves - 1, start_row + 1, start_col, cache)  # down
-            + self.solve_memo(num_rows, num_cols, max_moves - 1, start_row, start_col - 1, cache)  # left
-            + self.solve_memo(num_rows, num_cols, max_moves - 1, start_row, start_col + 1, cache)  # right
+            self.solve_memo(
+                num_rows, num_cols, max_moves - 1, start_row - 1, start_col, cache
+            )  # up
+            + self.solve_memo(
+                num_rows, num_cols, max_moves - 1, start_row + 1, start_col, cache
+            )  # down
+            + self.solve_memo(
+                num_rows, num_cols, max_moves - 1, start_row, start_col - 1, cache
+            )  # left
+            + self.solve_memo(
+                num_rows, num_cols, max_moves - 1, start_row, start_col + 1, cache
+            )  # right
         ) % 1000000007  # module 10**9 + 7
         cache[(start_row, start_col, max_moves)] = counter
 

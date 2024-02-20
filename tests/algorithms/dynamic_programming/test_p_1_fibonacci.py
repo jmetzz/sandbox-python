@@ -1,4 +1,5 @@
 import pytest
+
 from algorithms.dynamic_programming.p_1_fibonacci import (
     fib_sequence,
     fib_sequence_via_generator,
@@ -7,12 +8,16 @@ from algorithms.dynamic_programming.p_1_fibonacci import (
 )
 
 
-@pytest.mark.parametrize("test_input, expected", [(0, 0), (1, 1), (2, 1), (3, 2), (4, 3), (7, 13), (8, 21)])
+@pytest.mark.parametrize(
+    "test_input, expected", [(0, 0), (1, 1), (2, 1), (3, 2), (4, 3), (7, 13), (8, 21)]
+)
 def test_fib_recursive(test_input, expected):
     assert solve_recursive(test_input) == expected
 
 
-@pytest.mark.parametrize("test_input, expected", [(0, 0), (1, 1), (2, 1), (3, 2), (4, 3), (7, 13), (8, 21)])
+@pytest.mark.parametrize(
+    "test_input, expected", [(0, 0), (1, 1), (2, 1), (3, 2), (4, 3), (7, 13), (8, 21)]
+)
 def test_fib_with_memoization(test_input, expected):
     # assert fib_with_memoization(test_input) == expected
     assert solve_memoization(test_input, {}) == expected
